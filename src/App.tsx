@@ -26,6 +26,10 @@ const App: React.FC = () => {
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
+        <h2>Please after choosing The right career contact US</h2>
+        <h2>+972534022344</h2>
+        <h2>For personal , Beneficial and Right Advice!</h2>
+        
   <div className="fade-in">
     {}
   </div>
