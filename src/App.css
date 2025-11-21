@@ -29,10 +29,20 @@ body {
   padding: 2rem;
   max-width: 800px;
   margin: auto;
+  text-align: center;
 }
 
-h1, h2 {
+h1.app-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   color: var(--color-primary);
+}
+
+h2.app-subtitle {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 2rem;
+  color: var(--color-secondary);
 }
 
 button {
@@ -52,14 +62,15 @@ button:hover {
   transform: translateY(-2px);
 }
 
-input {
+select {
   padding: 10px;
   border: 1px solid var(--color-accent);
   border-radius: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   width: 100%;
   background: var(--color-card);
   color: var(--color-text);
+  font-size: 1rem;
 }
 
 .card {
@@ -74,6 +85,46 @@ input {
 .card:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li.career-option {
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  background: var(--color-card);
+  border-radius: 8px;
+  transition: background-color var(--transition-fast);
+}
+
+li.career-option a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+li.career-option:hover {
+  background-color: var(--color-accent);
+}
+
+.contact-section {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.contact-phone {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+.contact-note {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-top: 0.5rem;
 }
 
 .fade-in {
