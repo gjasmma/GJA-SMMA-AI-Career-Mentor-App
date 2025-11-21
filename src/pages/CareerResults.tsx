@@ -9,13 +9,78 @@ const CareerResults: React.FC = () => {
   const careerGoal = query.get('goal') || 'unknown career goal';
 
   useEffect(() => {
-    // Mock data based on the career goal
-    if (careerGoal.toLowerCase() === 'developer') {
-      setCareerOptions(['Frontend Developer', 'Backend Developer', 'Full Stack Developer']);
-    } else if (careerGoal.toLowerCase() === 'designer') {
-      setCareerOptions(['UI/UX Designer', 'Graphic Designer']);
+    const goal = careerGoal.toLowerCase();
+
+    if (goal === 'developer') {
+      setCareerOptions([
+        'Frontend Developer',
+        'Backend Developer',
+        'Full Stack Developer',
+        'Full-Stack AI Engineer',
+        'Blockchain Developer',
+        'Quantum Computing Researcher'
+      ]);
+    } else if (goal === 'designer') {
+      setCareerOptions([
+        'UI/UX Designer',
+        'Graphic Designer',
+        'Creative Technologist',
+        'Product Designer'
+      ]);
+    } else if (goal === 'security') {
+      setCareerOptions([
+        'Cybersecurity Analyst',
+        'Ethical Hacker (CEH)',
+        'IT Penetration Tester',
+        'Apple Security Software Developer',
+        'AI Threat Intelligence Specialist'
+      ]);
+    } else if (goal === 'health') {
+      setCareerOptions([
+        'Fitness Coach',
+        'Dietitian',
+        'Therapist',
+        'Medical Doctor',
+        'Mental Health Counselor'
+      ]);
+    } else if (goal === 'relationships') {
+      setCareerOptions([
+        'Relationship Advisor',
+        'Relationship Coach',
+        'Life Coach',
+        'Family Therapist'
+      ]);
+    } else if (goal === 'business') {
+      setCareerOptions([
+        'Global Analyst',
+        'Social Media Marketing Expert',
+        'Digital Strategist',
+        'Entrepreneur',
+        'Project Manager'
+      ]);
+    } else if (goal === 'finance') {
+      setCareerOptions([
+        'Cryptocurrency Investor',
+        'Stock Market Advisor',
+        'Financial Analyst',
+        'FinTech Product Manager'
+      ]);
+    } else if (goal === 'law') {
+      setCareerOptions([
+        'Lawyer',
+        'Corporate Legal Advisor',
+        'AI Ethics & Policy Specialist'
+      ]);
     } else {
-      setCareerOptions(['Consulting', 'Project Management', 'Data Analyst']);
+      // Default / general suggestions
+      setCareerOptions([
+        'Consulting',
+        'Project Management',
+        'Data Analyst',
+        'AI Agent',
+        'Sustainability Consultant',
+        'Climate Tech Engineer'
+      ]);
     }
   }, [careerGoal]);
 
