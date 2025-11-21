@@ -1,6 +1,6 @@
 // src/pages/CareerResults.tsx
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 const CareerResults: React.FC = () => {
   const [careerOptions, setCareerOptions] = useState<string[]>([]);
@@ -90,7 +90,9 @@ const CareerResults: React.FC = () => {
       <ul>
         {careerOptions.map((option, index) => (
           <li key={index} className="career-option">
-            {option}
+            <Link to={`/career-detail?career=${encodeURIComponent(option)}`}>
+              {option}
+            </Link>
           </li>
         ))}
       </ul>
@@ -99,6 +101,3 @@ const CareerResults: React.FC = () => {
 };
 
 export default CareerResults;
-
-
-
