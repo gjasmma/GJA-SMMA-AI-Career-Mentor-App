@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CareerResult from './pages/CareerResults';
-import CareerResult from './pages/CareerSelector';
-import CareerResult from './pages/CareerDetail';
+import CareerSelector from './pages/CareerSelector';
+import CareerDetail from './pages/CareerDetail';
 import ResumeBuilder from './pages/ResumeBuilder';
 import Profile from './pages/Profile';
 import Questionnaire from './components/Questionnaire';
