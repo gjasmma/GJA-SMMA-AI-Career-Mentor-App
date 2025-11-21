@@ -9,6 +9,7 @@ const CareerSelector: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedGoal) {
+      // Navigate to the results page with the selected goal
       navigate(`/career-results?goal=${selectedGoal}`);
     }
   };
@@ -31,7 +32,7 @@ const CareerSelector: React.FC = () => {
           <option value="business">Business</option>
           <option value="finance">Finance</option>
           <option value="law">Law</option>
-          <option value="ai">AI Agent</option>
+          <option value="ai">AI</option>
         </select>
         <button type="submit">See Career Suggestions</button>
       </form>
