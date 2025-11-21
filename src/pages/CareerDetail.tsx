@@ -1,40 +1,22 @@
-// src/pages/CareerResults.tsx
-import React, { useMemo } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+// src/pages/CareerDetail.tsx
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-const CareerResults: React.FC = () => {
+const CareerDetail: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const careerGoal = (searchParams.get('goal') || '').toLowerCase();
-
-  const careerOptions = useMemo(() => {
-    switch (careerGoal) {
-      case 'developer':
-        return ['Frontend Developer', 'Backend Developer', 'Full Stack Developer', 'Full-Stack AI Engineer'];
-      case 'health':
-        return ['Fitness Coach', 'Dietitian', 'Therapist', 'Medical Doctor'];
-      case 'security':
-        return ['Cybersecurity Analyst', 'Ethical Hacker (CEH)', 'IT Penetration Tester'];
-      // … add other categories here …
-      default:
-        return ['Consulting', 'Project Management', 'Data Analyst'];
-    }
-  }, [careerGoal]);
+  const career = searchParams.get('career') || 'Unknown Career';
 
   return (
-    <div className="career-result">
-      <h2>Career Suggestions for: {careerGoal}</h2>
-      <ul>
-        {careerOptions.map((option, index) => (
-          <li key={index} className="career-option">
-            <Link to={`/career-detail?career=${encodeURIComponent(option)}`}>
-              {option}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <div className="career-detail">
+      <h2>🎯 Your Chosen Career Path</h2>
+      <h3>{career}</h3>
+      <p>
+        Congratulations! You’ve selected <strong>{career}</strong>. 
+        This page can provide more detailed insights — such as skills required, 
+        learning resources, and potential career growth in 2025.
+      </p>
     </div>
   );
 };
 
-export default CareerResults;
-
+export default CareerDetail;
