@@ -9,103 +9,44 @@ const CareerResults: React.FC = () => {
   const careerOptions = useMemo(() => {
     switch (careerGoal) {
       case 'developer':
-        return [
-          'Frontend Developer',
-          'Backend Developer',
-          'Full Stack Developer',
-          'Full-Stack AI Engineer',
-          'Blockchain Developer',
-          'Quantum Computing Researcher'
-        ];
+        return ['Frontend Developer', 'Backend Developer', 'Full Stack Developer', 'Full-Stack AI Engineer'];
       case 'designer':
-        return [
-          'UI/UX Designer',
-          'Graphic Designer',
-          'Creative Technologist',
-          'Product Designer'
-        ];
+        return ['UI/UX Designer', 'Graphic Designer', 'Creative Technologist', 'Product Designer'];
       case 'security':
-        return [
-          'Cybersecurity Analyst',
-          'Ethical Hacker (CEH)',
-          'IT Penetration Tester',
-          'Apple Security Software Developer',
-          'AI Threat Intelligence Specialist'
-        ];
+        return ['Cybersecurity Analyst', 'Ethical Hacker (CEH)', 'IT Penetration Tester', 'AI Threat Intelligence Specialist'];
       case 'health':
-        return [
-          'Fitness Coach',
-          'Dietitian',
-          'Therapist',
-          'Medical Doctor',
-          'Mental Health Counselor'
-        ];
+        return ['Fitness Coach', 'Dietitian', 'Therapist', 'Medical Doctor'];
       case 'relationships':
-        return [
-          'Relationship Advisor',
-          'Relationship Coach',
-          'Life Coach',
-          'Family Therapist'
-        ];
+        return ['Relationship Advisor', 'Relationship Coach', 'Life Coach', 'Family Therapist'];
       case 'business':
-        return [
-          'Global Analyst',
-          'Social Media Marketing Expert',
-          'Digital Strategist',
-          'Entrepreneur',
-          'Project Manager'
-        ];
+        return ['Global Analyst', 'Social Media Marketing Expert', 'Digital Strategist', 'Entrepreneur'];
       case 'finance':
-        return [
-          'Cryptocurrency Investor',
-          'Stock Market Advisor',
-          'Financial Analyst',
-          'FinTech Product Manager'
-        ];
+        return ['Cryptocurrency Investor', 'Stock Market Advisor', 'Financial Analyst'];
       case 'law':
-        return [
-          'Lawyer',
-          'Corporate Legal Advisor',
-          'AI Ethics & Policy Specialist'
-        ];
+        return ['Lawyer', 'Corporate Legal Advisor', 'AI Ethics & Policy Specialist'];
       case 'ai':
-        return [
-          'AI Agent',
-          'AI Ethics Specialist',
-          'AI Product Manager',
-          'AI Research Scientist'
-        ];
+        return ['AI Agent', 'AI Ethics Specialist', 'AI Product Manager', 'AI Research Scientist'];
       default:
-        return [
-          'Consulting',
-          'Project Management',
-          'Data Analyst',
-          'Sustainability Consultant',
-          'Climate Tech Engineer'
-        ];
+        return ['Consulting', 'Project Management', 'Data Analyst', 'Sustainability Consultant'];
     }
   }, [careerGoal]);
 
   return (
     <div className="career-result">
       <h2>Career Suggestions for: {careerGoal || '—'}</h2>
-
-      {careerOptions.length === 0 ? (
-        <p>No suggestions found. Try another category.</p>
-      ) : (
-        <ul>
-          {careerOptions.map((option, index) => (
-            <li key={index} className="career-option">
-              {/* Link each suggestion to a detail page */}
-              <Link to={`/career-detail?career=${encodeURIComponent(option)}`}>
-                {option}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {careerOptions.map((option, index) => (
+          <li key={index} className="career-option">
+            <Link to={`/career-detail?career=${encodeURIComponent(option)}`}>
+              {option}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
 export default CareerResults;
+
+
