@@ -1,115 +1,109 @@
 // src/pages/CareerResults.tsx
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
 
 const CareerResults: React.FC = () => {
-  const [careerOptions, setCareerOptions] = useState<string[]>([]);
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const careerGoal = query.get('goal') || 'unknown career goal';
+  const [searchParams] = useSearchParams();
+  const careerGoal = (searchParams.get('goal') || '').toLowerCase();
 
-  useEffect(() => {
-    const goal = careerGoal.toLowerCase();
-
-    switch (goal) {
+  const careerOptions = useMemo(() => {
+    switch (careerGoal) {
       case 'developer':
-        setCareerOptions([
+        return [
           'Frontend Developer',
           'Backend Developer',
           'Full Stack Developer',
           'Full-Stack AI Engineer',
           'Blockchain Developer',
           'Quantum Computing Researcher'
-        ]);
-        break;
+        ];
       case 'designer':
-        setCareerOptions([
+        return [
           'UI/UX Designer',
           'Graphic Designer',
           'Creative Technologist',
           'Product Designer'
-        ]);
-        break;
+        ];
       case 'security':
-        setCareerOptions([
+        return [
           'Cybersecurity Analyst',
           'Ethical Hacker (CEH)',
           'IT Penetration Tester',
           'Apple Security Software Developer',
           'AI Threat Intelligence Specialist'
-        ]);
-        break;
+        ];
       case 'health':
-        setCareerOptions([
+        return [
           'Fitness Coach',
           'Dietitian',
           'Therapist',
           'Medical Doctor',
           'Mental Health Counselor'
-        ]);
-        break;
+        ];
       case 'relationships':
-        setCareerOptions([
+        return [
           'Relationship Advisor',
           'Relationship Coach',
           'Life Coach',
           'Family Therapist'
-        ]);
-        break;
+        ];
       case 'business':
-        setCareerOptions([
+        return [
           'Global Analyst',
           'Social Media Marketing Expert',
           'Digital Strategist',
           'Entrepreneur',
           'Project Manager'
-        ]);
-        break;
+        ];
       case 'finance':
-        setCareerOptions([
+        return [
           'Cryptocurrency Investor',
           'Stock Market Advisor',
           'Financial Analyst',
           'FinTech Product Manager'
-        ]);
-        break;
+        ];
       case 'law':
-        setCareerOptions([
+        return [
           'Lawyer',
           'Corporate Legal Advisor',
           'AI Ethics & Policy Specialist'
-        ]);
-        break;
+        ];
       case 'ai':
-        setCareerOptions([
+        return [
           'AI Agent',
           'AI Ethics Specialist',
           'AI Product Manager',
           'AI Research Scientist'
-        ]);
-        break;
+        ];
       default:
-        setCareerOptions([
+        return [
           'Consulting',
           'Project Management',
           'Data Analyst',
           'Sustainability Consultant',
           'Climate Tech Engineer'
-        ]);
-        break;
+        ];
     }
   }, [careerGoal]);
 
   return (
     <div className="career-result">
-      <h2>Career Suggestions for: {careerGoal}</h2>
-      <ul>
-        {careerOptions.map((option, index) => (
-          <li key={index} className="career-option">
-            {option}
-          </li>
-        ))}
-      </ul>
+      <h2>Career Suggestions for: {careerGoal || '—'}</h2>
+
+      {careerOptions.length === 0 ? (
+        <p>No suggestions found. Try another category.</p>
+      ) : (
+        <ul>
+          {careerOptions.map((option, index) => (
+            <li key={index} className="career-option">
+              {/* Link each suggestion to a detail page */}
+              <Link to={`/career-detail?career=${encodeURIComponent(option)}`}>
+                {option}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
