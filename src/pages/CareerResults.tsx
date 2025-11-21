@@ -1,6 +1,6 @@
 // src/pages/CareerResults.tsx
 import React, { useMemo } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const CareerResults: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -18,12 +18,7 @@ const CareerResults: React.FC = () => {
           'Quantum Computing Researcher'
         ];
       case 'designer':
-        return [
-          'UI/UX Designer',
-          'Graphic Designer',
-          'Creative Technologist',
-          'Product Designer'
-        ];
+        return ['UI/UX Designer', 'Graphic Designer', 'Creative Technologist', 'Product Designer'];
       case 'security':
         return [
           'Cybersecurity Analyst',
@@ -33,56 +28,19 @@ const CareerResults: React.FC = () => {
           'AI Threat Intelligence Specialist'
         ];
       case 'health':
-        return [
-          'Fitness Coach',
-          'Dietitian',
-          'Therapist',
-          'Medical Doctor',
-          'Mental Health Counselor'
-        ];
+        return ['Fitness Coach', 'Dietitian', 'Therapist', 'Medical Doctor', 'Mental Health Counselor'];
       case 'relationships':
-        return [
-          'Relationship Advisor',
-          'Relationship Coach',
-          'Life Coach',
-          'Family Therapist'
-        ];
+        return ['Relationship Advisor', 'Relationship Coach', 'Life Coach', 'Family Therapist'];
       case 'business':
-        return [
-          'Global Analyst',
-          'Social Media Marketing Expert',
-          'Digital Strategist',
-          'Entrepreneur',
-          'Project Manager'
-        ];
+        return ['Global Analyst', 'Social Media Marketing Expert', 'Digital Strategist', 'Entrepreneur', 'Project Manager'];
       case 'finance':
-        return [
-          'Cryptocurrency Investor',
-          'Stock Market Advisor',
-          'Financial Analyst',
-          'FinTech Product Manager'
-        ];
+        return ['Cryptocurrency Investor', 'Stock Market Advisor', 'Financial Analyst', 'FinTech Product Manager'];
       case 'law':
-        return [
-          'Lawyer',
-          'Corporate Legal Advisor',
-          'AI Ethics & Policy Specialist'
-        ];
+        return ['Lawyer', 'Corporate Legal Advisor', 'AI Ethics & Policy Specialist'];
       case 'ai':
-        return [
-          'AI Agent',
-          'AI Ethics Specialist',
-          'AI Product Manager',
-          'AI Research Scientist'
-        ];
+        return ['AI Agent', 'AI Ethics Specialist', 'AI Product Manager', 'AI Research Scientist'];
       default:
-        return [
-          'Consulting',
-          'Project Management',
-          'Data Analyst',
-          'Sustainability Consultant',
-          'Climate Tech Engineer'
-        ];
+        return ['Consulting', 'Project Management', 'Data Analyst', 'Sustainability Consultant', 'Climate Tech Engineer'];
     }
   }, [careerGoal]);
 
@@ -96,10 +54,7 @@ const CareerResults: React.FC = () => {
         <ul>
           {careerOptions.map((option, index) => (
             <li key={index} className="career-option">
-              {/* Link each suggestion to a detail page */}
-              <Link to={`/career-detail?career=${encodeURIComponent(option)}`}>
-                {option}
-              </Link>
+              {option} — 📞 Contact me at <strong>+972534022344</strong> for personalized advice and effective data for your career in 2025/2026.
             </li>
           ))}
         </ul>
