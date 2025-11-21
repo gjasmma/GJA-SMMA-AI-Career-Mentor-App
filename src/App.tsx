@@ -22,23 +22,13 @@ const App: React.FC = () => {
           <ThemeToggle />
           <h1>AI Career Mentor</h1>
           <h2>Let’s explore your career path!</h2>
+
           <Routes>
-            {/* Step 1: Questionnaire */}
             <Route path="/" element={<Questionnaire />} />
-
-            {/* Step 2: Career goal selection */}
             <Route path="/career-selector" element={<CareerSelector />} />
-
-            {/* Step 3: Career suggestions based on goal */}
             <Route path="/career-results" element={<CareerResults />} />
-
-            {/* Step 4: Final detail page for chosen career */}
             <Route path="/career-detail" element={<CareerDetail />} />
-
-            {/* Step 5: Resume builder */}
             <Route path="/resume-builder" element={<ResumeBuilder />} />
-
-            {/* Step 6: Profile page */}
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
@@ -52,4 +42,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
 
